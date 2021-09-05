@@ -10,7 +10,7 @@ export const getContacts = (_) => (dispatch) => {
 
   return fetchContacts()
     .then((contacts) => dispatch(actions.getContactsSuccess(contacts)))
-    .catch((error) => dispatch(actions.getContactsError(error)));
+    .catch((error) => dispatch(actions.getContactsError(error.message)));
 };
 
 export const addContact = (data) => (dispatch) => {
@@ -18,7 +18,7 @@ export const addContact = (data) => (dispatch) => {
 
   return createContact(data)
     .then((contact) => dispatch(actions.addContactSuccess(contact)))
-    .catch((error) => dispatch(actions.addContactError(error)));
+    .catch((error) => dispatch(actions.addContactError(error.message)));
 };
 
 export const removeContact = (id) => (dispatch) => {
@@ -26,5 +26,5 @@ export const removeContact = (id) => (dispatch) => {
 
   return deleteContact(id)
     .then((_) => dispatch(actions.deleteContactSuccess(id)))
-    .catch((error) => dispatch(actions.deleteContactError(error)));
+    .catch((error) => dispatch(actions.deleteContactError(error.message)));
 };

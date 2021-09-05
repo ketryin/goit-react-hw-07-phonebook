@@ -11,7 +11,9 @@ async function executeRequestAsync(url, options = {}) {
     return await response.json();
   }
 
-  throw new Error();
+  throw new Error(
+    `Contacts API failed with status ${response.statusText} during executing request.`
+  );
 }
 
 export function fetchContacts() {
